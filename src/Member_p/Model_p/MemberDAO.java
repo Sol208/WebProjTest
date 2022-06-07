@@ -28,7 +28,84 @@ public class MemberDAO {
 		}
 	}
 	
-	public MemberDTO detail(String id) {
+	public int pwChange(MemberDTO dto){
+		int res = 0;
+		sql = "update memlist set pw = ? where email = ?";
+		
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,dto.getPw());
+			pstmt.setString(2,dto.getEmail());
+			
+			res = pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return res;
+	}
+	
+	public MemberDTO findId(String email) {
+		MemberDTO res = null;
+		sql = "select * from memlist where email=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				res = new MemberDTO();
+				res.setPid(rs.getString("pid"));
+				res.setPw(rs.getString("pw"));
+				res.setNick_name(rs.getString("nick_name"));
+				res.setpName(rs.getString("pname"));
+				res.setGender(rs.getString("gender"));
+				res.setTelecom(rs.getString("telecom"));
+				res.setPhoneNum(rs.getInt("phonenum"));
+				res.setEmail(rs.getString("email"));
+				res.setAddress(rs.getString("address"));
+				res.setGrade(rs.getInt("grade"));
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return res;
+	}
+	
+	public String emailCheck(String inputMail) {
+		String res = "unuseable";
+		sql = "select * from memlist where email=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, inputMail);
+			rs = pstmt.executeQuery();
+			
+			if (!rs.next()) {
+				res = "useable";
+				System.out.println("this email possible to use.");
+			} else {
+				res = "unuseable";
+				System.out.println("this email is already in use.");
+			}
+		} catch (SQLException e) {
+			System.out.println("email duplecation check fail");
+			e.printStackTrace();
+		}
+		return res;
+		
+	}
+	
+	
+	public MemberDTO findUser(String id) {
 		MemberDTO res = null;
 		sql = "select * from memlist where pid=?";
 		
@@ -42,12 +119,14 @@ public class MemberDAO {
 				res = new MemberDTO();
 				res.setPid(rs.getString("pid"));
 				res.setPw(rs.getString("pw"));
+				res.setNick_name(rs.getString("nick_name"));
 				res.setpName(rs.getString("pname"));
 				res.setGender(rs.getString("gender"));
 				res.setTelecom(rs.getString("telecom"));
 				res.setPhoneNum(rs.getInt("phonenum"));
 				res.setEmail(rs.getString("email"));
-				res.setAddress(rs.getString("address"));	
+				res.setAddress(rs.getString("address"));
+				res.setGrade(rs.getInt("grade"));
 			}
 
 		} catch (SQLException e) {
@@ -70,6 +149,7 @@ public class MemberDAO {
 			while(rs.next()) {
 				MemberDTO dto = new MemberDTO();
 				dto.setPid(rs.getString("pid"));
+				dto.setNick_name(rs.getString("nick_name"));
 				dto.setpName(rs.getString("pname"));
 				dto.setGender(rs.getString("gender"));
 				dto.setTelecom(rs.getString("telecom"));
@@ -90,20 +170,22 @@ public class MemberDAO {
 	}
 	
 	public void insert(MemberDTO dto) {
-		sql = "insert into memlist (pid, pw, pname, gender, telecom, phonenum, email, address) values"
-				+"(?, ?, ?, ?, ?, ?, ?, ?)";
+		sql = "insert into memlist (pid, pw, nick_name, pname, gender, telecom, phonenum, email, address, grade) values"
+				+"(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		System.out.println(dto);
 		try {
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, dto.getPid());
 			pstmt.setString(2, dto.getPw());
-			pstmt.setString(3, dto.getpName());
-			pstmt.setString(4, dto.getGender());
-			pstmt.setString(5, dto.getTelecom());
-			pstmt.setInt(6, dto.getPhoneNum());
-			pstmt.setString(7, dto.getEmail());
-			pstmt.setString(8, dto.getAddress());
+			pstmt.setString(3, dto.getNick_name());
+			pstmt.setString(4, dto.getpName());
+			pstmt.setString(5, dto.getGender());
+			pstmt.setString(6, dto.getTelecom());
+			pstmt.setInt(7, dto.getPhoneNum());
+			pstmt.setString(8, dto.getEmail());
+			pstmt.setString(9, dto.getAddress());
+			pstmt.setInt(10, dto.getGrade());
 			
 			pstmt.executeUpdate();
 			

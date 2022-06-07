@@ -2,11 +2,22 @@ package Member_p.Model_p;
 
 public class MemberDTO {
 
-	private String pid, pName, gender, address, email, pw, telecom;
-	private int phoneNum;
+	private String pid, pName, nick_name, gender, address, email, pw, telecom;
+	private int phoneNum, grade;
 	
 	
-	
+	public String getNick_name() {
+		return nick_name;
+	}
+	public void setNick_name(String nick_name) {
+		this.nick_name = nick_name;
+	}
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
 	public String getTelecom() {
 		return telecom;
 	}
@@ -57,10 +68,10 @@ public class MemberDTO {
 	}
 	@Override
 	public String toString() {
-		return "MemberDTO [pid=" + pid + ", pName=" + pName + ", gender=" + gender + ", address=" + address + ", email="
-				+ email + ", pw=" + pw + ", telecom=" + telecom + ", phoneNum=" + phoneNum + "]";
+		return "MemberDTO [pid=" + pid + ", pName=" + pName + ", nick_name=" + nick_name + ", gender=" + gender
+				+ ", address=" + address + ", email=" + email + ", pw=" + pw + ", telecom=" + telecom + ", phoneNum="
+				+ phoneNum + ", grade=" + grade + "]";
 	}
-	
 	
 	
 }

@@ -3,4 +3,4 @@
 
 <h1>메인!!</h1>
 
-<%=session.getAttribute("UserData") %>
+<%=session.getAttribute("User") %>

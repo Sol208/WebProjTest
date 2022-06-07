@@ -227,18 +227,17 @@ div#overLayer {
 </head>
 <body>
 
-	<div>
-		<h2>
-			<a href="javascript:void(0)" id="sign_list">일반회원</a>
-		</h2>
-
-		<h2>
-			<a href="">법인회원</a>
-		</h2>
-
-		<a href="Main">뒤로가기</a>
-
-	</div>
-
+<table>
+	<tr>
+		<td><a href="javascript:void(0)" id="sign_list">일반회원</a></td>
+	</tr>
+	<tr>
+		<td><a href="InsertCorpMember">법인회원</a></td>
+	</tr>
+	<tr>
+		<td><a href="/member/Main/Main">뒤로가기</a></td>
+	</tr>
+</table>
+	
 </body>
 </html>

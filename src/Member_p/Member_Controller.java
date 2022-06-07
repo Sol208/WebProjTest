@@ -21,8 +21,11 @@ public class Member_Controller extends HttpServlet{
         nonClass = new ArrayList<String>();
         nonClass.add("Main");
         nonClass.add("TypeSelect");
-        nonClass.add("InsertMember");
         nonClass.add("Login");
+        nonClass.add("InsertCorpMember");
+        nonClass.add("InsertMember");
+        nonClass.add("FindId");
+        nonClass.add("FindPw_CheckId");
     }
 	
 	@Override
@@ -30,7 +33,6 @@ public class Member_Controller extends HttpServlet{
 		String serviceStr = req.getRequestURI().substring(
 				(req.getContextPath() + "/Member/").length());
 		System.out.println("ServiceStr ==> " + serviceStr);
-		
 		req.setCharacterEncoding("utf-8");
 		
 		if(nonClass.contains(serviceStr)) {
