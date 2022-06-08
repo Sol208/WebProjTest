@@ -91,7 +91,7 @@ public class MarketDAO {
 	
 	public MarketDTO detail(String post_id){
 		MarketDTO dto = null;
-		sql = "select * from postlist_market where Post_id = ?";
+		sql = "select * from postlist_market where post_id = ?";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -200,7 +200,6 @@ public class MarketDAO {
 				dto.setCnt(rs.getInt("cnt"));
 				
 				res.add(dto);
-				System.out.println(dto);
 			}
 			
 		}catch (Exception e) {

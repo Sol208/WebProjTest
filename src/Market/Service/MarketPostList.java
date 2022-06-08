@@ -43,7 +43,6 @@ public class MarketPostList implements Market_Service {
 		request.setAttribute("pageTotal", pageTotal);
 		request.setAttribute("pageStart", pageStart);
 		request.setAttribute("pageEnd", pageEnd);
-		System.out.println("BoardList execute()실행" + data + "\n" + total + "\n" + page);
 	}
 
 }

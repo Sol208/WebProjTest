@@ -7,5 +7,6 @@
 <a href="/member/Member/FindId">아이디찾기</a>
 <a href="/member/Member/FindPw_CheckId">비밀번호찾기</a>
 <a href="/member/Market/PostList">장터</a>
+<a href="/member/MyPage/InputPass">mypage</a>
 
 <hr/>
