@@ -35,5 +35,4 @@ public class MarketPostDetail_Reg implements Market_Service {
 			request.setAttribute("mainUrl", "market/PostDetail");
 		}
 	}
-
 }

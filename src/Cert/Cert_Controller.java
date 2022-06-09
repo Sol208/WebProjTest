@@ -20,7 +20,6 @@ public class Cert_Controller extends HttpServlet{
 	public Cert_Controller() {
         nonClass = new ArrayList<String>();
         nonClass.add("authCodeCheck");
-
 	}
 
 	@Override
@@ -34,13 +33,12 @@ public class Cert_Controller extends HttpServlet{
 		}else {
 			try {
 				CertService serv =
-						(CertService)Class.forName("Cert_Controller.Service.Cert" + serviceStr).newInstance();
+						(CertService)Class.forName("Cert.Service.Cert" + serviceStr).newInstance();
 				serv.execute(req, resp);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}	
 		}
-		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/member/template.jsp"); 
 		dispatcher.forward(req, resp);
 	}

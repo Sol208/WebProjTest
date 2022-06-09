@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<h2>수정하실 정보를 입력 해주세요</h2>
+<h2>비밀번호를 입력해 주세요</h2>
 
 
-<form action="MemberEdit">
+<form action="InputPass_Reg" method="post">
 	<table>
 		<tr>
 			<td>
@@ -13,3 +13,6 @@
 		</tr>
 	</table>
 </form>
+<script>
+
+</script>

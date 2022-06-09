@@ -28,6 +28,7 @@ String result = "false";
 		opener.document.signUpForm.eamilAuthBtn.readOnly = true;
 		opener.document.signUpForm.authCodeCheckBtn.disabled = true;
 		opener.document.signUpForm.inputAuthCode.disabled = true; */
+		
 		self.close();
 	} else {
 		alert("인증번호가 올바르지 않습니다.");

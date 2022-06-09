@@ -11,7 +11,7 @@
 			<td colspan="2">
 				<input type="submit" value="완료" />
 				<input type="hidden" name="email" value="${email }"/>
-				<input type="hidden" name="memberKind" value="${memberKind }"/>
+				<input type="hidden" name="memberkind" value="${memberkind }"/>
 			</td>
 		</tr>
 	</table>

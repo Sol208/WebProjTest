@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
- <form action="/member/Market/PostInsert_Reg" method="post">
+ <form action="/member/Market/PostInsert_Reg" method="post" enctype="multipart/form-data">
  
  
  	<input type="hidden" name="userId" value="ood1208" />
@@ -13,6 +13,8 @@
     		<tr>
     			<td colspan="2"><input type="text" name="title" placeholder="상품명을 입력해주세요" style="width:500px;"/></td>
     		</tr>
+    		<th>이미지</th>
+			<td><input type="file" name="img" multiple/></td>
     		<tr>
     			<th>상품 상태</th>
     			<td>

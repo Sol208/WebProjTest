@@ -14,11 +14,13 @@ public class MemberFindPwReg implements MemberService{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String email = request.getParameter("email");
-		String memberKind = request.getParameter("memberKind");
+		String memberkind = request.getParameter("memberkind");
 		
-		System.out.println("MemberFindPwReg ===> " + memberKind);
 		
-		request.setAttribute("memberKind", memberKind);
+		
+		System.out.println("MemberFindPwReg ===> " + memberkind);
+		
+		request.setAttribute("memberkind", memberkind);
 		request.setAttribute("email", email);
 		request.setAttribute("mainUrl", "member/FindPwReg");
 	}

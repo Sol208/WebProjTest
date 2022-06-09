@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<form name="signUpForm" action="CorpInsertReg" method="post">
+<form name="signUpForm" action="CorpInsertReg" method="post" onsubmit="return authCheck();">
 	<table border="">
 		<tr>
 			<th>아이디</th>
@@ -21,7 +21,11 @@
 		</tr>
 		<tr>
 			<th>사업자등록번호</th>
-			<td><input type="text" name="corp_regnum"/><button type="button" value="사업자 등록번호 확인" name="checkRegNum" onclick="corpRegNumCheck()">인증</button></td>
+			<td>
+			<input type="text" name="corp_regnum"/>
+			<button type="button" value="사업자 등록번호 확인" name="checkRegNum" onclick="corpRegNumCheck()">인증</button>
+			<input type="hidden" name="corpAuthPass" id="corpAuthPass" value="false"></td>
+			</td>
 		</tr>
 		<tr>
 			<th>회사주소</th>
@@ -38,7 +42,13 @@
 		<tr>
 			<th>담당자이메일</th>
 			<td>
-				<input type="text" name="corp_email" id="inputEmailForm"/>
+				<input type="text" name="email1" id="inputEmailForm"/>
+				<input type="text" style="width: 20px; border: none; background: transparent;" value="@" disabled /> 
+				<select name="email2" id="selectEmailForm">
+					<option value="gmail.com">google.com</option>
+					<option value="naver.com">naver.com</option>
+					<option value="nate.com">naver.com</option>
+				</select>
 				<button onclick="emailAuthentication()" id="eamilAuthBtn" 
 						type="button" class="btnChk">인증 메일 보내기</button>
 			</td>
@@ -60,6 +70,21 @@
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
 	var corpCheck = false;
+	
+	function authCheck(){
+		var emailReg= document.getElementById("authPass").value;
+		var corpReg = document.getElementById("corpAuthPass").value;
+		
+		if(emailReg=="true" && corpReg=="true" ){
+			return true
+		} else if(corpReg=="false"){
+			alert("사업자 인증을 해주세요")
+			return false;
+		} else if(emailReg=="false"){
+			alert("이메일 인증을 해주세요")
+			return false;
+		}
+	}
 	
 	function emailAuthentication(){
 		if (!emailValCheck()){
@@ -130,8 +155,11 @@ function corpRegNumCheck(){
     	  
     	  if(b_stt=="" || b_stt=="폐업자" || b_stt=="휴업자"){
     		  alert("잘못된 등록번호 입니다.")
+    	 	  document.getElementById("corpAuthPass").value = false;
     	  }else if(b_stt=="계속사업자"){
     		  alert("인증되었습니다.")
+    	 	  document.getElementById("corpAuthPass").value = true;
+
     		  corpCheck = true;
     	  }else{
     		  alert("잘못된 등록번호 입니다.")

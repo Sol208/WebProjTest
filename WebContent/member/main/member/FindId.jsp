@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%=session.getAttribute("User") %>
 <h1>이메일을 입력해주세요.</h1>
-<form name="findIdForm" action="FindIdReg" method="post">
+<form name="findIdForm" action="FindIdReg" method="post" onsubmit="return authCheck();">
 	<table>
 		<tr>
     		<td>
@@ -38,6 +38,18 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
+
+function authCheck(){
+	var reg= document.getElementById("authPass").value;
+	
+	if(reg=="true"){
+		return true
+	} else if(reg=="false"){
+		alert("이메일 인증을 해주세요")
+		return false;
+	}
+}
+
 function emailAuthentication(){
 
   	var email = document.findIdForm.email.value;

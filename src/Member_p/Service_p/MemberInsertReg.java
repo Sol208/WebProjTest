@@ -12,9 +12,6 @@ public class MemberInsertReg implements MemberService{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 			
-			int phonenum = Integer.parseInt(request.getParameter("phonenum1")+
-					request.getParameter("phonenum2")+
-					request.getParameter("phonenum3"));
 			String email = request.getParameter("email1") + "@" + request.getParameter("email2");
 			int grade = 2;
 						
@@ -26,7 +23,7 @@ public class MemberInsertReg implements MemberService{
 			dto.setGender(request.getParameter("gender"));
 			dto.setEmail(email);
 			dto.setTelecom(request.getParameter("telecom"));
-			dto.setPhoneNum(phonenum);
+			dto.setPhoneNum(request.getParameter("phonenum"));
 			dto.setAddress(request.getParameter("address"));
 			dto.setGrade(grade);
 			

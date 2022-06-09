@@ -3,12 +3,18 @@ package Market.Model;
 import java.util.Date;
 
 public class MarketDTO {
-	private String post_id, user_id, user_email, title, check_quality, l_category, s_category, delivery, content;
+	private String post_id, user_id, user_email, title, check_quality, l_category, s_category, delivery, content, img;
 	private int user_num, price, cnt;
 	private Date reg_date;
 	
 	
 	
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	public int getCnt() {
 		return cnt;
 	}
@@ -91,8 +97,10 @@ public class MarketDTO {
 	public String toString() {
 		return "MarketDTO [post_id=" + post_id + ", user_id=" + user_id + ", user_email=" + user_email + ", title="
 				+ title + ", check_quality=" + check_quality + ", l_category=" + l_category + ", s_category="
-				+ s_category + ", delivery=" + delivery + ", content=" + content + ", user_num=" + user_num + ", price="
-				+ price + ", cnt=" + cnt + ", reg_date=" + reg_date + "]";
+				+ s_category + ", delivery=" + delivery + ", content=" + content + ", img=" + img + ", user_num="
+				+ user_num + ", price=" + price + ", cnt=" + cnt + ", reg_date=" + reg_date + "]";
 	}
+	
+	
 
 }

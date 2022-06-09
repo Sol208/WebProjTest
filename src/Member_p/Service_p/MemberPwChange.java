@@ -13,19 +13,19 @@ public class MemberPwChange implements MemberService{
 	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String memberKind = request.getParameter("memberKind");
+		String memberkind = request.getParameter("memberkind");
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
 		String msg = "비밀번호 변경에 실패했습니다.";
 		String goUrl = "/Main/Main";
 		
-		if(memberKind.equals("개인회원")) {
+		if(memberkind.equals("개인회원")) {
 			MemberDTO dto = new MemberDAO().findId(email);
 			dto.setPw(pw);
 			new MemberDAO().pwChange(dto);
 			msg = "변경된 비밀번호로 로그인 해주세요.";
 			goUrl = "/Main/Main";
-		} else if(memberKind.equals("법인회원")) {
+		} else if(memberkind.equals("법인회원")) {
 			CorpMemberDTO dto = new CorpMemberDAO().findId(email);
 			dto.setPw(pw);
 			new CorpMemberDAO().pwChange(dto);

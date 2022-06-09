@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<form name="signUpForm" action="InsertReg" method="post">
+<form name="signUpForm" action="InsertReg" method="post" onsubmit="return authCheck();">
 	<table border="">
 		<tr>
 			<th>ID</th>
@@ -33,9 +33,7 @@
 					<option>SKT</option>
 					<option>KT</option>
 					<option>LGU+</option>
-			</select> <input type="text" name="phonenum1" maxlength="3" /> - <input
-				type="text" name="phonenum2" maxlength="4" /> - <input type="text"
-				name="phonenum3" maxlength="4" /></td>
+			</select> <input type="text" name="phonenum" maxlength="11" />
 		</tr>
 		<tr>
 			<th>이메일</th>
@@ -44,7 +42,7 @@
 				<select name="email2" id="selectEmailForm">
 					<option value="gmail.com">google.com</option>
 					<option value="naver.com">naver.com</option>
-					<option value="naver.com">naver.com</option>
+					<option value="nate.com">naver.com</option>
 				</select>
 				<button onclick="emailAuthentication()" id="eamilAuthBtn"
 					type="button">인증 메일 보내기</button>
@@ -62,9 +60,8 @@
 			<td><input type="text" name="address" /></td>
 		</tr>
 		<tr>
-			<td colspan="2" align="right"><input type="submit" name="완료" />
+			<td colspan="2" align="right"><input type="submit" name="완료" /><ul>
 			</td>
-
 		</tr>
 	</table>
 </form>
@@ -73,6 +70,17 @@
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
 const form = document.signUpForm;
+
+function authCheck(){
+	var reg= document.getElementById("authPass").value;
+	
+	if(reg=="true"){
+		return true
+	} else if(reg=="false"){
+		alert("이메일 인증을 해주세요")
+		return false;
+	}
+}
 
 function emailAuthentication(){
 	if (!emailValCheck()){

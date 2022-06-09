@@ -29,6 +29,31 @@ public class CorpMemberDAO {
 		
 	}
 	
+	public int editInfo(CorpMemberDTO dto) {
+		int res = 0;
+		sql = "update corpmemlist set nick_name = ?, corp_name = ?, corp_regnum = ?, corp_email = ?, corp_address = ?, manager_name = ?, manager_num = ? where pid = ?";
+		
+		 try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getNick_name());
+			pstmt.setString(2, dto.getCorp_name());
+			pstmt.setLong(3, dto.getCorp_regnum());
+			pstmt.setString(4, dto.getCorp_email());
+			pstmt.setString(5, dto.getCorp_address());
+			pstmt.setString(6, dto.getManager_name());
+			pstmt.setString(7, dto.getManager_num());
+			pstmt.setString(8, dto.getPid());
+			
+			res = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
 	public String emailCheck(String inputMail) {
 		String res = "unuseable";
 		sql = "select * from corpmemlist where corp_email=?";
@@ -92,7 +117,7 @@ public class CorpMemberDAO {
 				res.setCorp_email(rs.getString("corp_email"));
 				res.setCorp_address(rs.getString("corp_address"));
 				res.setManager_name(rs.getString("manager_name"));
-				res.setManager_num(rs.getInt("manager_num"));
+				res.setManager_num(rs.getString("manager_num"));
 				
 				System.out.println(res);
 			}
@@ -126,7 +151,8 @@ public class CorpMemberDAO {
 				res.setCorp_email(rs.getString("corp_email"));
 				res.setCorp_address(rs.getString("corp_address"));
 				res.setManager_name(rs.getString("manager_name"));
-				res.setManager_num(rs.getInt("manager_num"));
+				res.setManager_num(rs.getString("manager_num"));
+				res.setGrade(rs.getInt("grade"));
 				
 				System.out.println(res);
 			}
@@ -155,7 +181,7 @@ public class CorpMemberDAO {
 			pstmt.setString(6, dto.getCorp_email());
 			pstmt.setString(7, dto.getCorp_address());
 			pstmt.setString(8, dto.getManager_name());
-			pstmt.setInt(9, dto.getManager_num());
+			pstmt.setString(9, dto.getManager_num());
 			pstmt.setInt(10, dto.getGrade());
 			
 			pstmt.executeUpdate();

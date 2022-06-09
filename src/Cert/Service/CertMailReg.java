@@ -47,8 +47,6 @@ public class CertMailReg implements CertService{
 					sendMail(inputEmail);
 				}
 			}
-			
-			
 		}
 		
 		if(requestPage.equals("InsertMember")) {
@@ -60,7 +58,6 @@ public class CertMailReg implements CertService{
 		} else if(requestPage.equals("FindPw")) {
 			request.setAttribute("mainUrl", "member/FindPw");
 		}
-		
 	}
 		
 	public String authCodeMaker() {

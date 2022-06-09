@@ -115,8 +115,8 @@ public class MarketDAO {
 				dto.setPrice(rs.getInt("price"));
 				dto.setContent(rs.getString("content"));
 				dto.setReg_date(rs.getTimestamp("reg_date"));
+				dto.setImg(rs.getString("img"));
 				dto.setCnt(rs.getInt("cnt"));
-				
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -128,9 +128,8 @@ public class MarketDAO {
 	
 	public void insert(MarketDTO dto){
 		sql = "insert into postlist_market (post_id, user_id, user_email, user_num, title, "
-				+ "check_quality, l_category, s_category, delivery, price, content, reg_date) values"
-				+"(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate())";
-		
+				+ "check_quality, l_category, s_category, delivery, price, content, reg_date, img) values"
+				+"(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate(), ?)";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -146,6 +145,9 @@ public class MarketDAO {
 			pstmt.setString(9,dto.getDelivery());
 			pstmt.setInt(10,dto.getPrice());
 			pstmt.setString(11,dto.getContent());
+			pstmt.setString(12,dto.getImg());
+			
+			System.out.println(dto);
 			
 			pstmt.executeUpdate();
 		}catch (Exception e) {
@@ -201,7 +203,6 @@ public class MarketDAO {
 				
 				res.add(dto);
 			}
-			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {

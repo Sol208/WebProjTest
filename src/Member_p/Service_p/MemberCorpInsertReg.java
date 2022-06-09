@@ -13,7 +13,7 @@ public class MemberCorpInsertReg implements MemberService{
 	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		
+		String email = request.getParameter("email1") + "@" + request.getParameter("email2");
 		int grade = 3;
 		
 		CorpMemberDTO dto = new CorpMemberDTO();
@@ -22,10 +22,10 @@ public class MemberCorpInsertReg implements MemberService{
 		dto.setNick_name(request.getParameter("nick_name"));
 		dto.setCorp_name(request.getParameter("corp_name"));
 		dto.setCorp_regnum(Long.parseLong(request.getParameter("corp_regnum")));
-		dto.setCorp_email(request.getParameter("corp_email"));
+		dto.setCorp_email(email);
 		dto.setCorp_address(request.getParameter("corp_address"));
 		dto.setManager_name(request.getParameter("manager_name"));
-		dto.setManager_num(Integer.parseInt(request.getParameter("manager_num")));
+		dto.setManager_num(request.getParameter("manager_num"));
 		dto.setGrade(grade);
 		
 		new CorpMemberDAO().corpMemInsert(dto);;

@@ -28,6 +28,30 @@ public class MemberDAO {
 		}
 	}
 	
+	public int editInfo(MemberDTO dto) {
+		int res = 0;
+		sql = "update memlist set nick_name = ?, pname = ?, gender = ?, phonenum = ?, email = ?, address = ? where pid = ?";
+		
+		 try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getNick_name());
+			pstmt.setString(2, dto.getpName());
+			pstmt.setString(3, dto.getGender());
+			pstmt.setString(4, dto.getPhoneNum());
+			pstmt.setString(5, dto.getEmail());
+			pstmt.setString(6, dto.getAddress());
+			pstmt.setString(7, dto.getPid());
+			
+			res = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
 	public int pwChange(MemberDTO dto){
 		int res = 0;
 		sql = "update memlist set pw = ? where email = ?";
@@ -65,7 +89,7 @@ public class MemberDAO {
 				res.setpName(rs.getString("pname"));
 				res.setGender(rs.getString("gender"));
 				res.setTelecom(rs.getString("telecom"));
-				res.setPhoneNum(rs.getInt("phonenum"));
+				res.setPhoneNum(rs.getString("phonenum"));
 				res.setEmail(rs.getString("email"));
 				res.setAddress(rs.getString("address"));
 				res.setGrade(rs.getInt("grade"));
@@ -123,7 +147,7 @@ public class MemberDAO {
 				res.setpName(rs.getString("pname"));
 				res.setGender(rs.getString("gender"));
 				res.setTelecom(rs.getString("telecom"));
-				res.setPhoneNum(rs.getInt("phonenum"));
+				res.setPhoneNum(rs.getString("phonenum"));
 				res.setEmail(rs.getString("email"));
 				res.setAddress(rs.getString("address"));
 				res.setGrade(rs.getInt("grade"));
@@ -153,7 +177,7 @@ public class MemberDAO {
 				dto.setpName(rs.getString("pname"));
 				dto.setGender(rs.getString("gender"));
 				dto.setTelecom(rs.getString("telecom"));
-				dto.setPhoneNum(rs.getInt("phonenum"));
+				dto.setPhoneNum(rs.getString("phonenum"));
 				dto.setEmail(rs.getString("email"));
 				dto.setAddress(rs.getString("address"));
 				
@@ -182,7 +206,7 @@ public class MemberDAO {
 			pstmt.setString(4, dto.getpName());
 			pstmt.setString(5, dto.getGender());
 			pstmt.setString(6, dto.getTelecom());
-			pstmt.setInt(7, dto.getPhoneNum());
+			pstmt.setString(7, dto.getPhoneNum());
 			pstmt.setString(8, dto.getEmail());
 			pstmt.setString(9, dto.getAddress());
 			pstmt.setInt(10, dto.getGrade());

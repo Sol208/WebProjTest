@@ -44,6 +44,14 @@
 	</tr>
 	<tr>
 		<td colspan="2">
+			<c:forTokens items ="${post_dto.img }"
+				delims = "," var = "ee" varStatus="no">
+				<img src="<c:url value="/uploadFile/market/${ee}"/>" alt="" />
+			</c:forTokens>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
 			${post_dto.content }
 		</td>
 	</tr>

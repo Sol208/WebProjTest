@@ -2,8 +2,8 @@ package Member_p.Model_p;
 
 public class CorpMemberDTO {
 	
-	private String pid, pw, nick_name, corp_name, email, corp_address, manager_name;
-	private int manager_num, grade;
+	private String pid, pw, nick_name, corp_name, email, corp_address, manager_name, manager_num;
+	private int grade;
 	private Long corp_regnum;
 	
 	public int getGrade() {
@@ -54,10 +54,10 @@ public class CorpMemberDTO {
 	public void setManager_name(String manager_name) {
 		this.manager_name = manager_name;
 	}
-	public int getManager_num() {
+	public String getManager_num() {
 		return manager_num;
 	}
-	public void setManager_num(int manager_num) {
+	public void setManager_num(String manager_num) {
 		this.manager_num = manager_num;
 	}
 	public Long getCorp_regnum() {

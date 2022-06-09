@@ -2,8 +2,8 @@ package Member_p.Model_p;
 
 public class MemberDTO {
 
-	private String pid, pName, nick_name, gender, address, email, pw, telecom;
-	private int phoneNum, grade;
+	private String pid, pName, nick_name, gender, address, email, pw, telecom, phoneNum;
+	private int grade;
 	
 	
 	public String getNick_name() {
@@ -60,10 +60,10 @@ public class MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getPhoneNum() {
+	public String getPhoneNum() {
 		return phoneNum;
 	}
-	public void setPhoneNum(int phoneNum) {
+	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
 	}
 	@Override

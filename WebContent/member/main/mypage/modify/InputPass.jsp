@@ -3,7 +3,7 @@
 <h2>비밀번호를 입력해 주세요</h2>
 
 
-<form action="InputPass_Reg">
+<form action="InputPass_Reg" method="post">
 	<table>
 		<tr>
 			<td>
@@ -13,3 +13,6 @@
 		</tr>
 	</table>
 </form>
+<script>
+
+</script>

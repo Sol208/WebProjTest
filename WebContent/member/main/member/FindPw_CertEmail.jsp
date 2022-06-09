@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <h2>회원가입시 등록한 이메일을 입력해주세요</h2>
-<form name="findPwForm" action="FindPwReg" method="post">
+<form name="findPwForm" action="FindPwReg" method="post" onsubmit="return authCheck();">
 	<table border="">
 		<tr>
 			<th>이메일</th>
@@ -23,7 +23,7 @@
 		<tr>
 			<td colspan="2">
 				<input type="submit" value="다음" />
-				<input type="hidden" name="memberKind" value="${memberKind }" />
+				<input type="hidden" name="memberkind" value="${memberkind }" />
 			</td>
 		</tr>
 	</table>
@@ -32,6 +32,17 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
+function authCheck(){
+	var reg= document.getElementById("authPass").value;
+	
+	if(reg=="true"){
+		return true
+	} else if(reg=="false"){
+		alert("이메일 인증을 해주세요")
+		return false;
+	}
+}
+
 function emailAuthentication(){
 
   	var email = document.findPwForm.email.value;
