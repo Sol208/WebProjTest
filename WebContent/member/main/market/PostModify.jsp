@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<form action="/member/Market/PostModify_Reg" method="post">
+<form action="/member/Market/PostModify_Reg" method="post"
+	enctype="multipart/form-data">
 	<table border="">
 		<tr>
 			<td colspan="2"><input type="text" name="title"
 				value="${dto.title }" /></td>
+		</tr>
+		<tr>
+			<th>이미지</th>
+			<td><input type="file" name="img" multiple />
+				<button type="button" onclick="deleteImg();">파일 삭제</button> <input
+				type="text" name="imgCnt_text" value="이미지 : ${img_Cnt }개" /></td>
 		</tr>
 		<tr>
 			<th>판매자 아이디</th>
@@ -62,3 +69,26 @@
 		</tr>
 	</table>
 </form>
+
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+	function deleteImg() {
+		
+		var post_id = new Object();
+		post_id.post_id = '${dto.post_id }';
+		
+		$.ajax({
+			url : '/member/Market/UploadImgEdit_Reg',
+			data : post_id,
+			type : 'POST',
+			success : function(result) {
+				document.getElementsByName("imgCnt_text")[0].value = "이미지 : 0개";
+			},
+			error : function(e) {
+				console.log(e);
+			}
+		})
+	}
+</script>

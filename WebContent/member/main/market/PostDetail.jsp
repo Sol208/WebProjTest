@@ -7,8 +7,8 @@
 <table border="">
 	<tr>
 		<td colspan="2" align="right">
-			<button onclick="location.href='PostDelete_Reg?post_id=${dto.post_id }&page=${nowPage }'">삭제</button>
-			<button onclick="location.href='PostModify?post_id=${dto.post_id }&page=${nowPage }'">수정</button>
+			<button onclick="location.href='PostDelete_Reg?post_id=${post_dto.post_id }&page=${nowPage }'">삭제</button>
+			<button onclick="location.href='PostModify?post_id=${post_dto.post_id }&page=${nowPage }'">수정</button>
 		</td>
 	</tr>
 	<tr>

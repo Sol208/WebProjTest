@@ -22,6 +22,7 @@ public class MyPage_Modify_Controller extends HttpServlet{
 	        super();
 	        nonClass = new ArrayList<String>();
 	        nonClass.add("InputPass");
+	        nonClass.add("Pw_Edit");
 	    }
 	
 	@Override

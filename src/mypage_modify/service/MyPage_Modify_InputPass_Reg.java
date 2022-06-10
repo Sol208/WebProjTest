@@ -28,7 +28,6 @@ public class MyPage_Modify_InputPass_Reg implements MyPage_Modify_Service {
 					msg = "비밀번호를 확인해주세요";
 					goUrl = "InputPass";
 				}
-				;
 			} else if (dto.getGrade() == 3) {
 				if (dto.getPw().equals(user_pw)) {
 					msg = "확인되었습니다.";
@@ -37,7 +36,6 @@ public class MyPage_Modify_InputPass_Reg implements MyPage_Modify_Service {
 					msg = "비밀번호를 확인해주세요";
 					goUrl = "InputPass";
 				}
-				;
 			}
 		} catch (ClassCastException e) {
 			System.out.println("법인회원입니다.");
@@ -53,7 +51,6 @@ public class MyPage_Modify_InputPass_Reg implements MyPage_Modify_Service {
 					msg = "비밀번호를 확인해주세요";
 					goUrl = "InputPass";
 				}
-				;
 			} else if (dto.getGrade() == 3) {
 				if (dto.getPw().equals(user_pw)) {
 					msg = "확인되었습니다.";
@@ -62,7 +59,6 @@ public class MyPage_Modify_InputPass_Reg implements MyPage_Modify_Service {
 					msg = "비밀번호를 확인해주세요";
 					goUrl = "InputPass";
 				}
-				;
 			}
 		} catch (ClassCastException e) {
 			System.out.println("일반회원입니다.");

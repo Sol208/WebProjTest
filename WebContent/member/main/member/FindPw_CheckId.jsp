@@ -6,7 +6,7 @@
 	<table>
 		<tr>
     		<td>
-    			개인회원<input type="radio" name="memberkind" value="개인회원"/>
+    			개인회원<input type="radio" name="memberkind" value="개인회원" checked/>
     			법인회원<input type="radio" name="memberkind" value="법인회원"/>
     		</td>
    		</tr>

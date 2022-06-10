@@ -30,7 +30,7 @@ public class MemberLoginReg implements MemberService{
 			if(dto == null) {
 				msg = "아이디를 확인해주세요";
 				goUrl = "Login";
-			}else {
+			} else {
 				if(inputPw.equals(dto.getPw())) {
 					msg = "로그인 성공!";
 					goUrl = "/Main/Main"; // 원래는 nowpage가 들어가야함

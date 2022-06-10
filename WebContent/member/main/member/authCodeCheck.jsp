@@ -17,22 +17,21 @@ String result = "false";
 	
 	if (inputedCode == ""){
 		alert("인증번호가 올바르지 않습니다.");
-		opener.document.getElementById("authPass").value = "false";
+		opener.document.getElementById("authPass").value = "false";		/* 인증 유효성검사 추가 */
 		self.close();
 	}
 	if(<%=result%> == true){
 		alert("인증이 완료되었습니다.");
-		opener.document.getElementById("authPass").value = "true";
+		opener.document.getElementById("authPass").value = "true";		/* 인증 유효성검사 추가 */
+<!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ -->
+		<%ShareVar_login.authEamilCode = null;%> // 인증번호 초기화
+<!-- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ -->
 		console.log("<%=result%>");
-		/* opener.document.signUpForm.inputEmailForm.readOnly = true; 
-		opener.document.signUpForm.eamilAuthBtn.readOnly = true;
-		opener.document.signUpForm.authCodeCheckBtn.disabled = true;
-		opener.document.signUpForm.inputAuthCode.disabled = true; */
 		
 		self.close();
 	} else {
 		alert("인증번호가 올바르지 않습니다.");
-		opener.document.getElementById("authPass").value = "false";
+		opener.document.getElementById("authPass").value = "false";		/* 인증 유효성검사 추가 */
 		self.close();
 	}
 

@@ -2,7 +2,28 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+   
+   <form name="category_select" action="PostSearchList" method="post">
+		<select name="l_field" >
+	        <option value="list">전체</option>
+	        <option value="농구용품">농구용품</option>
+	        <option value="축구용품">축구용품</option>        
+     	</select>
+		<select name="s_field" >
+	        <option value="list">전체</option>
+	        <option value="신발">신발</option>
+	        <option value="의류">의류</option> 
+	        <option value="기타용품">기타용품</option>        
+     	</select>
+	
+		<input type="text" name = "search" />
+	
+		<input type="submit"  value="검색"/>
+	</form>
+   
    <table border="">
+   
+   
 	<tr>
 		<td>번호</td>
 		<td>제목</td>
@@ -21,6 +42,7 @@
 		<td>
 		<fmt:formatDate value = "${dto.reg_date }" pattern="yy-MM-dd HH:mm"/>
 		</td>
+		
 		<td>${dto.cnt }</td>
 	</tr>
 	</c:forEach>
@@ -28,7 +50,7 @@
 			
 		<td colspan="5" align="center">
 			<c:if test="${pageStart>1 }">
-				<a href="<c:url value="/Market/PostList?page=${pageStart-1 }"/>">[이전]</a>
+				<a href="<c:url value="/Market/PostList?page=${pageStart-1 }&l_field=${param.l_field }&s_field=${param.s_field }&search=${param.search }"/>">[이전]</a>
 			</c:if>
 				<c:forEach var = "i" begin="${pageStart }" end = "${pageEnd }" step="1">
 					<c:choose>
@@ -36,12 +58,12 @@
 							[${i }]
 						</c:when>
 						<c:otherwise>
-							<a href="<c:url value="/Market/PostList?page=${i }"/>">${i }</a>
+							<a href="<c:url value="/Market/PostList?page=${i }&l_field=${param.l_field }&s_field=${param.s_field }&search=${param.search }"/>">${i }</a>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 				<c:if test="${pageEnd<pageTotal }">
-				<a href="<c:url value="/Market/PostList?page=${pageEnd+1 }"/>">[다음]</a>
+				<a href="<c:url value="/Market/PostList?page=${pageEnd+1 }&l_field=${param.l_field }&s_field=${param.s_field }&search=${param.search }"/>">[다음]</a>
 			</c:if>
 		</td>
 	</tr>

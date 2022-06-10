@@ -1,6 +1,7 @@
 package Market.Service;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,9 +49,8 @@ public class MarketPostInsert_Reg implements Market_Service {
 						String separator = File.separator;
 
 						int index = item.getName().lastIndexOf(separator);
-
-						String fileName = item.getName().substring(index + 1);
-
+						
+						String fileName = System.currentTimeMillis() + item.getName().substring(index + 1) ; 
 						File uploadFile = new File(realPath + separator + fileName);
 						allImg += fileName + ",";
 
@@ -60,10 +60,10 @@ public class MarketPostInsert_Reg implements Market_Service {
 				} // else
 			} // for
 
-			MarketDTO dto = new MarketDTO();
+			MarketDTO dto = new MarketDTO(); 
 			dto.setPost_id("market" + System.currentTimeMillis());
 			dto.setUser_id(map.get("userId"));
-			dto.setUser_num(Integer.parseInt(map.get("userNum")));
+			dto.setUser_num(map.get("userNum"));
 			dto.setUser_email(map.get("userEmail"));
 			dto.setTitle(map.get("title"));
 			dto.setCheck_quality(map.get("check_quality"));

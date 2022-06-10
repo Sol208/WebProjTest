@@ -14,7 +14,7 @@ public class MemberLogoutReg implements MemberService{
 		String goUrl = "/Main/Main";
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("User", "");
+		session.invalidate();
 		
 		request.setAttribute("msg", msg);
 		request.setAttribute("mainUrl", "alert");

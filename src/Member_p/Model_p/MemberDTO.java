@@ -2,10 +2,17 @@ package Member_p.Model_p;
 
 public class MemberDTO {
 
-	private String pid, pName, nick_name, gender, address, email, pw, telecom, phoneNum;
+	private String pid, pName, nick_name, gender, address, email, pw, telecom, phoneNum, detailAddress;
 	private int grade;
 	
 	
+	
+	public String getDetailAddress() {
+		return detailAddress;
+	}
+	public void setDetailAddress(String detailAddress) {
+		this.detailAddress = detailAddress;
+	}
 	public String getNick_name() {
 		return nick_name;
 	}
@@ -70,8 +77,9 @@ public class MemberDTO {
 	public String toString() {
 		return "MemberDTO [pid=" + pid + ", pName=" + pName + ", nick_name=" + nick_name + ", gender=" + gender
 				+ ", address=" + address + ", email=" + email + ", pw=" + pw + ", telecom=" + telecom + ", phoneNum="
-				+ phoneNum + ", grade=" + grade + "]";
+				+ phoneNum + ", detailAddress=" + detailAddress + ", grade=" + grade + "]";
 	}
+	
 	
 	
 }
