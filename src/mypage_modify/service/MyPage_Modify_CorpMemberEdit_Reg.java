@@ -24,6 +24,7 @@ public class MyPage_Modify_CorpMemberEdit_Reg implements MyPage_Modify_Service{
 		String detailAddress = request.getParameter("detailAddress");
 // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 		String manager_name = request.getParameter("manager_name");
+		String telecom = request.getParameter("telecom"); 
 		String manager_num = request.getParameter("manager_num"); 
 		String email1 = request.getParameter("email1");
 		String email2 = request.getParameter("email2");
@@ -31,6 +32,7 @@ public class MyPage_Modify_CorpMemberEdit_Reg implements MyPage_Modify_Service{
 		
 		CorpMemberDTO dto = new CorpMemberDTO();
 		
+		System.out.println(corp_address);
 		dto.setPid(pid);
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 		dto.setPw(pw);
@@ -39,13 +41,15 @@ public class MyPage_Modify_CorpMemberEdit_Reg implements MyPage_Modify_Service{
 		dto.setCorp_name(corp_name);
 		dto.setCorp_regnum(corp_regnum);
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-		dto.setCorp_address(corp_address);
+		dto.setAddress(corp_address);
 		dto.setDetailAddress(detailAddress);
+		dto.setTelecom(telecom);
 // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 		dto.setManager_name(manager_name);
 		dto.setManager_num(manager_num);
-		dto.setCorp_email(email);
+		dto.setEmail(email);
 		
+		System.out.println(dto);
 		new CorpMemberDAO().editInfo(dto);
 		
 		request.setAttribute("msg", "회원정보가 수정되었습니다.");

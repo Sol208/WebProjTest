@@ -14,7 +14,7 @@ public class MyPage_Modify_CorpMemberEdit implements MyPage_Modify_Service{
 			
 		HttpSession session = request.getSession();
 		CorpMemberDTO dto = (CorpMemberDTO)session.getAttribute("User");
-		String[] email_arr = dto.getCorp_email().split("@");
+		String[] email_arr = dto.getEmail().split("@");
 		
 		
 		

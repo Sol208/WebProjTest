@@ -2,12 +2,18 @@ package Member_p.Model_p;
 
 public class CorpMemberDTO {
 	
-	private String pid, pw, nick_name, corp_name, email, corp_address, detailAddress, manager_name, manager_num;
+	private String pid, pw, nick_name, corp_name, email, address, detailAddress, manager_name, telecom, manager_num;
 	private int grade;
 	private Long corp_regnum;
 	
 	
 	
+	public String getTelecom() {
+		return telecom;
+	}
+	public void setTelecom(String telecom) {
+		this.telecom = telecom;
+	}
 	public String getDetailAddress() {
 		return detailAddress;
 	}
@@ -44,17 +50,17 @@ public class CorpMemberDTO {
 	public void setCorp_name(String corp_name) {
 		this.corp_name = corp_name;
 	}
-	public String getCorp_email() {
+	public String getEmail() {
 		return email;
 	}
-	public void setCorp_email(String corp_email) {
-		this.email = corp_email;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getCorp_address() {
-		return corp_address;
+	public String getAddress() {
+		return address;
 	}
-	public void setCorp_address(String corp_address) {
-		this.corp_address = corp_address;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getManager_name() {
 		return manager_name;
@@ -77,10 +83,8 @@ public class CorpMemberDTO {
 	@Override
 	public String toString() {
 		return "CorpMemberDTO [pid=" + pid + ", pw=" + pw + ", nick_name=" + nick_name + ", corp_name=" + corp_name
-				+ ", email=" + email + ", corp_address=" + corp_address + ", detailAddress=" + detailAddress
-				+ ", manager_name=" + manager_name + ", manager_num=" + manager_num + ", grade=" + grade
+				+ ", email=" + email + ", address=" + address + ", detailAddress=" + detailAddress + ", manager_name="
+				+ manager_name + ", telecom=" + telecom + ", manager_num=" + manager_num + ", grade=" + grade
 				+ ", corp_regnum=" + corp_regnum + "]";
 	}
-	
-	
 }
