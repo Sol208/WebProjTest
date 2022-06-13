@@ -16,6 +16,8 @@ public class Member_Controller extends HttpServlet{
 
 	ArrayList<String> nonClass;
 	
+	ArrayList<String> nonTemplate;
+	
     public Member_Controller() {
         super();
         nonClass = new ArrayList<String>();
@@ -26,6 +28,12 @@ public class Member_Controller extends HttpServlet{
         nonClass.add("InsertMember");
         nonClass.add("FindId");
         nonClass.add("FindPw_CheckId");
+        
+        nonTemplate= new ArrayList<String>();
+        nonTemplate.add("OverLap_Check");
+        
+        
+        
     }
 	
 	@Override
@@ -45,9 +53,12 @@ public class Member_Controller extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}	
-		}	
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/member/template.jsp"); 
-		dispatcher.forward(req, resp);
+		}
+		
+		if(!nonTemplate.contains(serviceStr)) {
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/member/template.jsp"); 
+			dispatcher.forward(req, resp);
+		}
 	}
 	
 	@Override

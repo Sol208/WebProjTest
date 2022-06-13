@@ -20,6 +20,7 @@ public class MemberLoginReg implements MemberService{
 		System.out.println(request.getRequestURI());
 
 		System.out.println(memberkind);
+		System.out.println(inputId);
 		
 		String msg = "로그인 실패";
 		String goUrl = "/Main/Main";

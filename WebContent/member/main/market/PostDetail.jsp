@@ -57,7 +57,7 @@
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<textarea name="comment_input" id="" cols="90" rows="5" style="resize:none;"></textarea>
+			<textarea name="comment_input" id="${post_dto.post_id }" cols="90" rows="5" style="resize:none;"></textarea>
 			<button onclick="commentInsert()">댓글입력</button>
 			<input type="hidden" name="post_id" value="${post_dto.post_id }" />
 		</td>

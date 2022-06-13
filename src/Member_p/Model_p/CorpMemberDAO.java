@@ -54,6 +54,33 @@ public class CorpMemberDAO {
 		
 		return res;
 	}
+
+// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	public String idCheck(String inputId) {
+		String res = "unuseable";
+		sql = "select * from corpmemlist where pid=?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, inputId);
+			rs = pstmt.executeQuery();
+			
+			if (!rs.next()) {
+				res = "useable";
+				System.out.println("this id possible to use.");
+			} else {
+				res = "unuseable";
+				System.out.println("this id is already in use.");
+			}
+		} catch (SQLException e) {
+			System.out.println("id duplecation check fail");
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return res;
+	}
+// ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 	
 	public String emailCheck(String inputMail) {
 		String res = "unuseable";

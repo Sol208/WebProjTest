@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<header>
 <a href="/member/Member/TypeSelect">회원가입</a>
 <a href="/member/Member/Login">로그인</a>
 <a href="/member/Member/LogoutReg">로그아웃</a>
@@ -9,5 +9,5 @@
 <a href="/member/Market/PostList">장터</a>
 <a href="/member/mypage/modify/InputPass">회원정보 수정</a>
 <a href="/member/mypage/PostView">내글 보기</a>
-
+</header>
 <hr/>

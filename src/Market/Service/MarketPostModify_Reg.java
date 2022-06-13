@@ -24,6 +24,7 @@ public class MarketPostModify_Reg implements Market_Service{
 		String savePath = "C:\\jsp_work\\member\\WebContent\\uploadFile\\market";
 		int maxSize = 10 * 1024 * 1024;
 		String type = "utf-8";
+		
 		realPath = savePath;
 
 		String allImg = "";

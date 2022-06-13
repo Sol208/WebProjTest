@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 import Member_p.MemberService;
 
 public class MemberLogoutReg implements MemberService{
-	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String msg = "로그아웃 되었습니다.";
@@ -20,5 +19,4 @@ public class MemberLogoutReg implements MemberService{
 		request.setAttribute("mainUrl", "alert");
 		request.setAttribute("goUrl", goUrl);
 	}
-
 }
